@@ -17,9 +17,9 @@ class ImageLink(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length=256)
-    authors = models.ManyToManyField(Author)
+    authors = models.ManyToManyField(to=Author)
     published_date = models.CharField(max_length=10)
-    industry_identifiers = models.ForeignKey(IndustryIdentifier, on_delete=models.CASCADE)
+    industry_identifiers = models.ForeignKey(to=IndustryIdentifier, on_delete=models.CASCADE)
     page_count = models.IntegerField(blank=True)
-    image_links = models.ForeignKey(ImageLink, on_delete=models.CASCADE)
+    image_links = models.ForeignKey(to=ImageLink, on_delete=models.CASCADE)
     language = models.CharField(max_length=128)
